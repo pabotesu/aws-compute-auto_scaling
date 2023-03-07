@@ -1,0 +1,1 @@
+## aws auto scalingにおける一検討

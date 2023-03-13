@@ -9,7 +9,7 @@ variable "aws_region" {
 
 /*aws-vpc-settings*/
 variable "enviroments" {
-  default     = "bot-server"
+  default     = "test-1"
 }
 variable "vpc-cidr" {
   type        = string

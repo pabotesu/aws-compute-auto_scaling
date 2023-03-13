@@ -22,6 +22,16 @@ module "aws_sg" {
   vpc-id            = "${module.aws_vpc.vpc-id}"
 }
 
+module "aws_lb" {
+  source = "../../modules/loadbalancer"
+
+  #Set Palamater
+  enviroments       = "${var.enviroments}"
+  vpc-id            = "${module.aws_vpc.vpc-id}"
+  public-subnets    = "${var.public-subnets}"
+  sg-for_loadbalancer-id  = "${module.aws_sg.sg-for_loadbalancer-id}"
+}
+
 module "aws_ec2" {
   source = "../../modules/compute"
 

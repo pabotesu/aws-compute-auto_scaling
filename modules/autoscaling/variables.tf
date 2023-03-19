@@ -3,6 +3,7 @@ variable "vpc-id" {}
 variable "availability_zone" {}
 variable "public-subnets-ids" {}
 variable "sg-for_basic_server-id" {}
+variable "loadbalancer-id" {}
 variable "ec2-config" {
       type = map(string)
       default = {

@@ -32,6 +32,19 @@ module "aws_lb" {
   sg-for_loadbalancer-id  = "${module.aws_sg.sg-for_loadbalancer-id}"
 }
 
+module "aws_autoscaling" {
+   source = "../../modules/autoscaling"
+
+  #Set Palamater
+  enviroments             = "${var.enviroments}"
+  vpc-id                  = "${module.aws_vpc.vpc-id}"
+  public-subnets-ids      = "${module.aws_vpc.public-subnets-ids}"
+  availability_zone       = "${var.availability_zone}"
+  sg-for_basic_server-id  = "${module.aws_sg.sg-for_basic_server-id}"
+  ec2-config              = "${var.ec2-config}"
+}
+
+/*
 module "aws_ec2" {
   source = "../../modules/compute"
 
@@ -44,3 +57,4 @@ module "aws_ec2" {
   ec2-config              = "${var.ec2-config}"
 
 }
+*/
